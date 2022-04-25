@@ -10,12 +10,17 @@ deno install -Af --no-check -n maze -r https://raw.githubusercontent.com/herudi/
 
 ```bash
 maze create my-app --template=twind
+// or 
+git clone https://github.com/maze-template/maze-twind.git my-app
+
 cd my-app
 ```
 
 ### Run Dev
 
 ```bash
+deno task dev
+// or
 maze dev
 ```
 
