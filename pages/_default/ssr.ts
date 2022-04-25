@@ -1,4 +1,4 @@
-import { Helmet, renderSSR } from "nano-jsx";
+import { Component, Helmet, renderSSR } from "nano-jsx";
 import twind_config from "../../twind.config.ts";
 import { setup } from "https://jspm.dev/twind@0.16.17";
 import {
@@ -12,12 +12,12 @@ const sheet = virtualSheet();
 setup({ sheet, ...twind_config });
 
 export default function ssr(
-  Component: any,
+  Comp: Component,
   mazeScript: string,
-  opts: Record<string, any> = {},
+  opts = {},
 ) {
   (sheet as any).reset();
-  const app = renderSSR(Component, opts);
+  const app = renderSSR(Comp, opts);
   shim(app);
   const { body, head, footer, attributes } = Helmet.SSR(app);
   const styleTag = getStyleTag(sheet, void 0);
